@@ -1,7 +1,7 @@
 # gdut_anyview_example
 广东工业大学数据结构anyview参考例子  
 
-[第1章](../gdut_anyview_example/chapter1/README.md)   
+[第1章](../chapter1/README.md)   
 [第2章]()  
 [第3章]()  
 [第4章]()  
