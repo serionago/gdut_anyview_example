@@ -300,55 +300,39 @@ long Fib(int k, int n) {
     if (pBase == nullptr)
         return ERROR;
     memset(pBase, 0, (k + 1) * sizeof(ElemType));
+
     Sq.base = pBase;
     Sq.front = 0;
     Sq.rear = k;
     Sq.maxSize = k + 1;
-
-
-    Sq.rear = k;
     *(Sq.base + k - 1) = 1;
-    *(Sq.base + k - 2) = 1;
 
-    if (n <= k)
+
+    if (n < k)
         return *(Sq.base + n);
-    for (int i = k + 1; i <= n; i++)
+    for (int i = k; i <= n; i++)
     {
-        if (Sq.front <= Sq.rear)
-        {
-            for (int j = Sq.front; j < k; j++)
-                *(Sq.base + Sq.rear) += *(Sq.base + Sq.front + j);
-        }
-        else 
-        {
-            for (int j = 0; j < k+1; j++)
-            {
-                if (j == Sq.rear)
-                {
-                    continue;
-                }
-                *(Sq.base + Sq.rear) += *(Sq.base + j);
-            }
-        }
-        Sq.rear++;
-        if (Sq.rear == Sq.maxSize)
-        {
-            Sq.rear = 0;
-        }
-        *(Sq.base + Sq.rear) = 0;
-        Sq.front++;
-        if (Sq.front == Sq.maxSize)
-        {
-            Sq.front = 0;
-        }
+      int j=Sq.front;
+      while(j!=Sq.rear)
+      {
+        *(Sq.base + Sq.rear)+=*(Sq.base+j);
+        j++;
+        j%=Sq.maxSize;
+      }
+      Sq.rear++;
+      Sq.rear%=Sq.maxSize;
+      Sq.front++;
+      Sq.front%=Sq.maxSize;
+      *(Sq.base + Sq.rear) = 0;
     }
     
-    int l=Sq.rear-1;
-    if(l<0)
+    int index=Sq.rear-1;
+    if(index<0)
     {
-      l=Sq.maxSize-1;
+      index+=Sq.maxSize;//index=Sq.maxSize-1;
     }
-    return *(Sq.base+l);
+    return *(Sq.base+index);
+    
 }
 ```   
 ##  15. <a name='DC02PE33AB'></a>DC02PE33  试写一个比较A和B大小的算法    
