@@ -1,1 +1,14 @@
-theme: jekyll-theme-hacker
+title: gdut_anyview_example
+lang: zh-cn
+description: 广东工业大学数据结构anyview参考例子
+
+remote_theme: rundocs/jekyll-rtd-theme
+
+readme_index:
+  with_frontmatter: true
+
+exclude:
+  - Makefile
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
