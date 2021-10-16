@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 title: gdut_anyview_example
 lang: zh-cn
 description: 广东工业大学数据结构anyview参考例子
@@ -13,6 +12,3 @@ exclude:
   - CNAME
   - Gemfile
   - Gemfile.lock
-=======
-theme: jekyll-theme-minimal
->>>>>>> 54709c38be083021cd23c45d4eed0f14616567f8
