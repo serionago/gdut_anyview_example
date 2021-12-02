@@ -9,6 +9,4 @@
 [第6章](../gdut_anyview_example/chapter6/)  
 [第7章](../gdut_anyview_example/chapter7/)  
 [第8章](../gdut_anyview_example/chapter8/)  
-（持续更新中...）  
-
-欢迎讨论
+> 已更完 欢迎讨论
