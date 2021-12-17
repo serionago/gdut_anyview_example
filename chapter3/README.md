@@ -11,16 +11,35 @@ sort: 3
 void InsertSort(RcdSqList &L)
 { 
   //直接插入排序，从小到大
+
+  //在1号位到length号位都有数据，这样就有length个数据
+  for(int i=2;i<L.length+1;i++)//进行length-1次插入，因为默认第一个直接成为一个有序数列
+  {
+    L.rcd[L.length+1].key=L.rcd[i].key;//准备将第i个数值进行插入，设置哨兵
+    int j=i-1;
+    while(L.rcd[L.length+1].key<L.rcd[j].key)//直到哨兵的数值大于或等于rcd[j]
+    {
+      L.rcd[j+1].key=L.rcd[j].key;
+      j--;
+    }
+    L.rcd[j+1].key=L.rcd[L.length+1].key;
+  }
+}
+```
+```C
+void InsertSort(RcdSqList &L)
+{ 
+  //直接插入排序，从小到大
   int n = L.length+1;//监视哨
   //在1号位到length号位都有数据，这样就有length个数据
-  for(int i=L.length-1;i>=1;i--)//进行length-1次插入，因为默认第一个直接成为一个有序数列
+  for(int i=L.length-1;i>=1;i--)//进行length-1次插入，默认最后一个直接成为一个有序数列
   {
     if(L.rcd[i].key>L.rcd[i+1].key)
     {
         int j;
         L.rcd[n].key=L.rcd[i].key;//准备将第i个数值进行插入，设置哨兵
-        for(j=i+1;L.rcd[j].key<L.rcd[n].key;j++)//直到哨兵的数值大于或等于rcd[j]
-          L.rcd[j-1].key=L.rcd[j].key;
+        for(j=i+1;L.rcd[j].key<L.rcd[n].key;j++)//直到哨兵的数值大于rcd[j]
+            L.rcd[j-1].key=L.rcd[j].key;
         L.rcd[j-1].key=L.rcd[n].key;
     }
   }

@@ -708,7 +708,10 @@ void ReleaseX(BiTree &bt, char x)
 void CopyBiTree(BiTree T, BiTree &TT)
 {  
   if(T==NULL)
+  {
+    TT=NULL;
     return;
+  }
   BiTree p1 = T;
 
   //复制根结点
