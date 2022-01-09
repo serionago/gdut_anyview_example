@@ -1087,14 +1087,13 @@ void xLevel(BiTree T,TElemType x, bool &found, int &xlev)
 Status RegularBiTree(BiTree T)
 {  
   if(T==NULL)
-    return FALSE;
+    return TRUE;
   if(T->lchild!=NULL||T->rchild!=NULL)
   {
     if(T->lchild!=NULL&&T->rchild!=NULL)
       ; 
-    return FALSE;
+    else return FALSE;
   }
-  return TRUE;
   Status r1 = RegularBiTree(T->lchild);
   Status r2 = RegularBiTree(T->rchild);
   return r1&&r2;
